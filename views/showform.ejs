@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200;400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/views/style2.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+    <div><a href="/"><button>HOME</button></a></div>
+    <div id="name"><%= form.senderusername %></div>
+    <div><a href="/logout"><button>Logout</button></a></div>
+    </nav>
+    <div class="details">
+      <div><h2>name:</h2>
+        <%= form.name %>
+      </div>
+      <div>
+      <h2>
+        bestmemory you both have :
+      </h2><%= form.bestmemory %>
+      </div>
+      <div>
+        <h2>
+        things your friend like about you :</h2>
+        <%= form.youlike %>
+      </div>
+      <div><h2>
+        a message for you :</h2>
+        <%= form.message %>
+      </div>
+      <div><h2>phonenumber: </h2>
+        
+          <%= form.phonenumber %>
+        
+      </div>
+      <div><h2>email: </h2>
+        <%= form.email %>
+      </div>
+    </div>
+    <div class="footer">
+      <div>
+        <a href="/user/<%=back%>"><button>back</button></a>
+      </div>
+      <% if(form.receiverusername === visitor.username || form.senderusername
+      === visitor.username){ %>
+      <form action="/form/<%= form.id %>?_method=DELETE" method="post">
+        <input type="hidden" name="back" value="<%=back%>">
+        <button type="submit">delete</button>
+      </form>
+      <% } %> 
+
+  </div>
+  </body>
+</html>
+
+

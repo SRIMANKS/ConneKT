@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200;400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/views/style.css">
+    <title>home</title>
+  </head>
+  <body>
+    <div class="shapes"></div>
+    <div class="shapes"></div>
+    <div class="shapes"></div>
+    <nav>
+      <div class="myprofile">
+        <a href="/user/<%=id%>"><button>Myprofile</button></a>
+      </div>
+      <div class="logout">
+        <a href="/logout"><button>Logout</button></a>
+      </div>
+    </nav>
+    <div class="center">
+      <div class="logo">ConneKT</div>
+      <div class="subtext">The digital slam book. </div>
+      <form action="/" method="post">
+        <input type="text" name="name" id="name" placeholder="search HERE!" />
+        <input id="search" type="submit" value="search" />
+      </form>
+    </div>
+    <div class="svg"></div>
+
+  </body>
+</html>
+

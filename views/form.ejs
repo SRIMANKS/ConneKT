@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORM</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200;400;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1><%= receiver %> has some questions for you :)</h1>
+    <form action="/form" method="post">
+      <input
+        class="input"
+        type="text"
+        name="name"
+        placeholder="what is you name ?"
+        required
+      />
+      <input
+        class="input"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="your email id ?"
+        required
+      />
+      <textarea
+        class="input"
+        name="bestmemory"
+        id="bestmemory"
+        cols="30"
+        rows="4"
+        placeholder="tell a best memory we have ?"
+        required
+      ></textarea>
+      <textarea
+        class="input"
+        name="youlike"
+        id="youlike"
+        cols="30"
+        rows="4"
+        placeholder="things you like about me ?"
+        required
+      ></textarea>
+      <textarea
+        class="input"
+        name="message"
+        id="message"
+        cols="30"
+        rows="4"
+        placeholder="A message for me ?"
+        required
+      ></textarea>
+      <input type="hidden" name="receiver" value="<%=receiver%>" />
+      <input type="hidden" name="sender" value="<%=sender%>" />
+      <input id="submit" type="submit" value="submit" />
+    </form>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: "Anek Latin", sans-serif;
+    color: white;
+    border: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    align-items: center;
+  }
+  h1{
+    background: linear-gradient(#00ff75, #00aeff);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 850px;
+    border-radius: 10px;
+  }
+  .input {
+    font-family: "Anek Latin", sans-serif;
+    border-radius: 25px;
+    width: 90vw;
+    max-width: 800px;
+    border: 0px;
+    font-size: 2em;
+    padding: 0.4em;
+    color: azure;
+    background-color: #3d3d3d;
+  }
+  #submit {
+    padding:0.5em;
+    font-family: "Anek Latin", sans-serif;
+    font-size: 2em;
+    width: 100%;
+    color: aqua;
+    background: linear-gradient(45deg, #de0035, #ff00d6);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  #submit:hover{
+    transform: scale(1.03);
+  }
+</style>

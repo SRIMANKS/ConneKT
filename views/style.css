@@ -1,0 +1,101 @@
+body {
+  font-family: "Anek Latin", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+    background-color: #1c1c1c;
+}
+nav {
+  background-color: black;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+  font-size: 10em;
+  background: linear-gradient(#00ff75, #00aeff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+form {
+  display: flex;
+  height: 20vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10%;
+}
+#name {
+  font-family: "Anek Latin", sans-serif;
+  border-radius: 30px;
+  width: min(90vw,600px);
+  border: 0px;
+  font-size: 2em;
+  padding: 0.4em;
+  color: azure;
+  background-color: #3d3d3d;
+}
+.subtext {
+  font-size: 2em;
+  background: linear-gradient(#00ff75, #00aeff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#search {
+  font-family: "Anek Latin", sans-serif;
+  border-radius: 25px;
+  padding: 0.4em;
+  width: 300px;
+  font-size: 2em;
+  color: white;
+  background: linear-gradient(45deg, #de0035, #ff00d6);
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#search:hover {
+  background: linear-gradient(135deg, #de0035, #ff00d6);
+  transform: scale(1.1);
+}
+button {
+  padding: 0.5em 1em;
+  background: none;
+  font-family: "Anek Latin", sans-serif;
+  color: aqua;
+  margin: 1em 1em;
+  font-size: 1.5em;
+  transition: 0.5s;
+  box-sizing: border-box;
+  border: solid 1px #1c1c1c;
+}
+button:hover {
+  color:black;
+  background-color: aqua;
+}
+
+@media screen and (max-width: 800px) {
+  body{
+    font-size: smaller;
+  }
+  .logo{
+    margin-top:10%;
+  }
+  form{
+    margin-top:25%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .logo{
+    font-size: 6em;
+  }
+
+}
+
+

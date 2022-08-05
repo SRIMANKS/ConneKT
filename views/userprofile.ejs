@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/views/style1.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200;400;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>profile-<%= owner.username %></title>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="/"><button>Home</button></a>
+      </div>
+      <div>
+        <a href="/logout"><button>Logout</button></a>
+      </div>
+    </nav>
+    <div class="flash"><%= message%></div>
+    <div class="contact">
+      <h1 id="username"><%= owner.username %></h1>
+      <div>
+        <p>name: <%= owner.name %></p>
+        <p>rollnumber: <%= owner.rollno %></p>
+        <p>email: <%= owner.email %></p>
+      </div>
+    </div>
+    <div class="content">
+      <div class="reply">
+        <% for(var i = 0; i < senders.length; i++) { %>
+        <div class="card">
+          <div class="username">by <%= senders[i].senderusername %></div>
+          <div class="message">
+            <%= senders[i].bestmemory.slice(0,120) %>...
+          </div>
+          <div class="footer">
+            <a href="/form/<%= senders[i]._id %>"
+              ><button>View reply</button></a
+            >
+          </div>
+        </div>
+        <% } %> <% var render = true; for(var i = 0; i < senders.length; i++) {
+        if(senders[i].senderusername === visitor.username){ render = false; } }
+        if(owner.username !== visitor.username && render){ %>
+        <a href="/submit/<%= owner._id %>">
+          <div class="card" id="reply">
+            <div></div>
+          </div>
+        </a>
+        <% } %>
+      </div>
+    </div>
+    <% if(senders.length == 0) { %>
+    <div class="no">no replies yet.</div>
+    <% } %>
+  </body>
+</html>

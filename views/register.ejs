@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200;400;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= message %> </h1>
+    <h1 class="register">REGISTER</h1>
+    <form action="/register" method="post">
+        <input type="text" name="username" placeholder="username must be unique" maxlength="15" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="text" name="name" placeholder="name" required maxlength="20">
+        <input type="number" name="rollno" placeholder="rollno" required>
+        <input type="text" name="email" placeholder="email" required>
+        <input id="submit" type="submit" value="submit">
+    </form>
+</body>
+</html>
+<style>
+    body {
+      color: white;
+      border: 0px;
+      margin: 0px;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #1c1c1c;
+    }
+    h1,h3{
+      color: white;
+      font-size: 2em;
+      font-weight: 200;
+      letter-spacing: 0.05em;
+    }
+    a{
+      color: aqua;
+      font-size: 1em;
+      font-weight: 200;
+      letter-spacing: 0.05em;
+  
+    }
+    .register {
+        margin-bottom: 0px;
+      font-family: "Anek Latin", sans-serif;
+      font-weight: bold;
+      font-size: 7em;
+      background: linear-gradient(#00ff75, #00aeff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    input {
+        font-family: "Anek Latin", sans-serif;
+      border-radius: 30px;
+      width: 100%;
+      border: 0px;
+      font-size: 2em;
+      padding: 0.4em;
+      color: azure;
+      background-color: #3d3d3d;
+    }
+    #submit {
+        font-family: "Anek Latin", sans-serif;
+      border: 0px;
+      border-radius: 25px;
+      padding: 0.4em;
+      width: 300px;
+      font-size: 2em;
+      color: white;
+      background: linear-gradient(45deg, #de0035, #ff00d6);
+      transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    #submit:hover {
+      background: linear-gradient(135deg, #de0035, #ff00d6);
+      transform: scale(1.1);
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      width: min(90vw,500px);
+      height:600px;
+      border-radius: 10px;
+    }
+    @media screen and (max-width: 600px) {
+      .register{
+        font-size: 5em;
+      }
+    
+    }
+  </style>
