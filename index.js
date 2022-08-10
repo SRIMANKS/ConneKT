@@ -47,7 +47,10 @@ function verification(req, res, next) {
       throw new Error("Invalid token");
     }
     const user = jwt.verify(req.session.token, process.env.SECRET);
-    if (user) {
+    if (typeof user == "undefined" || user == null) {
+      throw new Error("Invalid token");
+    }
+    else{
       next();
     }
   } catch (e) {
@@ -78,7 +81,8 @@ app.post("/login", async (req, res, next) => {
         req.flash("success", "You are logged in");
         res.redirect("/");
       } else {
-        throw new Error("username or password is incorrect");
+        req.flash("info", "Invalid username or password");
+        res.redirect("/login");
       }
     } else {
       console.log("user not found");
@@ -112,6 +116,8 @@ app.post("/register", async (req, res, next) => {
         password: hashpass,
         name: req.body.name,
         rollno: req.body.rollno,
+        hostel: req.body.hostel,
+        dept: req.body.dept,
         email: req.body.email,
       });
       await newuser.save();
@@ -121,7 +127,7 @@ app.post("/register", async (req, res, next) => {
         { expiresIn: "2h" }
       );
       req.session.token = token;
-      res.redirect("/myprofile");
+      res.redirect("/login");
     } else {
       req.flash("error", "user name already exist");
       res.redirect("/register");
@@ -146,6 +152,21 @@ app.get("/user/:id", verification, async (req, res) => {
     message: req.flash("err"),
   });
 });
+
+
+app.get("/hostel/:name",async (req, res) => {
+  const name = `^${req.params.name}$`;
+  const listofusers = await userModel.find({"hostel":{'$regex': `${name}`,$options:'i'}});
+  res.render("listofusers", {listofusers:listofusers,name:name});
+});
+
+
+app.get("/dept/:name",async (req, res) => {
+  const name = req.params.name;
+  const listofusers = await userModel.find({ dept: name });
+  res.render("listofusers", { listofusers: listofusers,name:name});
+});
+
 
 app.get("/submit/:id", verification, async (req, res, next) => {
   try {
@@ -253,16 +274,26 @@ app.get("/", verification, (req, res) => {
 app.post("/", async (req, res,next) => {
   try{
   const name = req.body.name;
-  if (name) {
-    const user = await userModel.findOne({ username: name });
-    if (user) {
-      res.redirect(`/user/${String(user._id)}`);
-    } else {
-      throw new Error("The username you searched does not exist");
-    }
-  } else {
+  const searchtype = req.body.searchtype;
+  if(searchtype === "username"){
+    if (name) {
+      const user = await userModel.findOne({ username: name });
+      if (user) {
+        res.redirect(`/user/${String(user._id)}`);
+      } else {
+        throw new Error("The username you searched does not exist");
+      }
+  }
+  else {
     res.redirect("/");
   }
+}
+else if(searchtype === "hostel"){
+  res.redirect(`/hostel/${name}`);
+} 
+else if(searchtype === "dept"){
+  res.redirect(`/dept/${name}`);
+};
 }catch(e){
   next(e);
 }

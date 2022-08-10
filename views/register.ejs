@@ -20,6 +20,20 @@
         <input type="password" name="password" placeholder="password" required>
         <input type="text" name="name" placeholder="name" required maxlength="20">
         <input type="number" name="rollno" placeholder="rollno" required>
+<div class="hostel-dept">
+  <input type="text" name="hostel" id="hostel" placeholder="hostel" required>
+  <select name="dept" id="dept">
+    <option value="cse">CSE</option>
+    <option value="eee">EEE</option>
+    <option value="ece">ECE</option>
+    <option value="ice">ICE</option>
+    <option value="mech">MECH</option>
+    <option value="prod">PROD</option>
+    <option value="ce">CE</option>
+    <option value="chem">CHEM</option>
+    <option value="mme">MME</option>
+  </select>
+</div>
         <input type="text" name="email" placeholder="email" required>
         <input id="submit" type="submit" value="submit">
     </form>
@@ -70,6 +84,29 @@
       color: azure;
       background-color: #3d3d3d;
     }
+    .hostel-dept{
+      width:100%;
+      padding: 0.4em;
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    #hostel{
+      width:60%;
+    }
+
+    #dept{
+      text-align: center;
+      width: 25%;
+      border-radius: 30px;
+      border: 0px;
+      font-size: 1em;
+      color: azure;
+      background-color: #3d3d3d;
+    }
+
+
     #submit {
         font-family: "Anek Latin", sans-serif;
       border: 0px;

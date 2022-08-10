@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200;400;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/views/style.css">
+    <link rel="stylesheet" href="/views/home.css">
     <title>home</title>
   </head>
   <body>
@@ -29,7 +29,15 @@
       <div class="logo">ConneKT</div>
       <div class="subtext">The digital slam book. </div>
       <form action="/" method="post">
-        <input type="text" name="name" id="name" placeholder="search HERE!" />
+        <div class="inputfield">
+          <label for="name"></label>
+        <input type="text" name="name" id="name" placeholder="enterusername"/>
+        <select name="searchtype" id="searchtype">
+          <option value="username">username</option>
+          <option value="hostel">hostel</option>
+          <option value="dept">dept</option>
+        </select>
+      </div>
         <input id="search" type="submit" value="search" />
       </form>
     </div>
@@ -38,3 +46,8 @@
   </body>
 </html>
 
+<script>
+
+
+
+</script>

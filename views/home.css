@@ -33,23 +33,41 @@ form {
   justify-content: space-evenly;
   margin-top: 10%;
 }
+.inputfield{
+  width: min(90vw,600px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 #name {
   font-family: "Anek Latin", sans-serif;
   border-radius: 30px;
-  width: min(90vw,600px);
   border: 0px;
+  width: 65%;
   font-size: 2em;
   padding: 0.4em;
   color: azure;
   background-color: #3d3d3d;
 }
+select{
+  text-align: center;
+  width: 25%;
+  font-size: 1.2em;
+  border-radius: 30px;
+  border: 0px;
+  padding: 0.4em;
+  color: azure;
+  opacity: 0.5;
+  background-color: #3d3d3d;
+}
+
 .subtext {
   font-size: 2em;
   background: linear-gradient(#00ff75, #00aeff);
   -webkit-background-clip: text;
   color: transparent;
 }
-
 #search {
   font-family: "Anek Latin", sans-serif;
   border-radius: 25px;
